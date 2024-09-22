@@ -87,8 +87,11 @@ class IndicesActivity : AppCompatActivity() {
     ]
   }
     """.trimIndent()
+
+        val fileInString: String =
+            applicationContext.assets.open("indices.json").bufferedReader().use { it.readText() }
         val userList = ArrayList<Indices>()
-        val jsonObject = JSONObject(jsonString)
+        val jsonObject = JSONObject(fileInString)
         val jsonlast_update = jsonObject.getString("last_update");
         val jsonData = jsonObject.getJSONArray("data");
 

@@ -194,7 +194,9 @@ class PortfolioActivity : AppCompatActivity() {
   ]
     """.trimIndent()
 
-        val jsonObject = JSONArray(jsonString)
+        val fileInString: String =
+            applicationContext.assets.open("portfolio.json").bufferedReader().use { it.readText() }
+        val jsonObject = JSONArray(fileInString)
         for (i in 0 until jsonObject.length()) {
 
 //            val respObj = jsonObject.getJSONObject(i)
